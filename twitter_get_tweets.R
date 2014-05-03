@@ -15,7 +15,12 @@ library(twitteR)
 # register this session with your Twitter app
 registerTwitterOAuth(twitCred)
 
-# pull down 100 tweets that contain R Users Group
-tweets <- searchTwitter(searchString="meetup R",n=100)
+# pull down 10000 tweets that contain BofA
+tweets <- searchTwitter(searchString="BofA",n=10000,
+                        since='2014-04-01', until='2014-04-26')
 
+print(paste("number of tweets:",length(tweets)))
+
+#covert to a dataframe
+tweetDF <- twListToDF(tweets)
 
